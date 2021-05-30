@@ -1,3 +1,3 @@
 module go-hello-world
 
-go 1.14
+go 1.16

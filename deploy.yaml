@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-hello-world
+  namespace: default
+  labels:
+    go-hello-world: go-hello-world
+spec:
+  selector:
+    matchLabels:
+      go-hello-world: go-hello-world
+  template:
+    metadata:
+      labels:
+        go-hello-world: go-hello-world
+    spec:
+      containers:
+      - name: go-hello-world
+        image: ko://go-hello-world
