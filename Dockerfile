@@ -1,5 +1,5 @@
 # Build the manager binary
-FROM golang:1.13 as builder
+FROM golang:1.16 as builder
 
 WORKDIR /workspace
 # Copy the Go Modules manifests
@@ -15,6 +15,6 @@ RUN CGO_ENABLED=0 GO111MODULE=on go build -o main main.go
 FROM alpine
 WORKDIR /
 COPY --from=builder /workspace/main /main
-# USER nonroot:nonroot
+USER nonroot:nonroot
 
 ENTRYPOINT ["/main"]
